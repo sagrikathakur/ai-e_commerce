@@ -1,0 +1,8 @@
+prisma installation and setup guide 
+
+cd server
+npm install @prisma/client @prisma/adapter-pg pg
+npm install -D prisma
+
+2 initialize prisma
+npx prisma init --datasource-provider postgresql

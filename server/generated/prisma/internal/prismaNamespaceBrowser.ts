@@ -51,7 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User'
+  categories: 'categories',
+  orders: 'orders',
+  products: 'products',
+  stores: 'stores'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,14 +73,79 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
+export const CategoriesScalarFieldEnum = {
   id: 'id',
-  email: 'email',
+  store_id: 'store_id',
   name: 'name',
-  createdAt: 'createdAt'
+  slug: 'slug',
+  created_at: 'created_at'
 } as const
 
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+export type CategoriesScalarFieldEnum = (typeof CategoriesScalarFieldEnum)[keyof typeof CategoriesScalarFieldEnum]
+
+
+export const OrdersScalarFieldEnum = {
+  id: 'id',
+  order_number: 'order_number',
+  store_id: 'store_id',
+  customer_id: 'customer_id',
+  customer_name: 'customer_name',
+  customer_email: 'customer_email',
+  customer_phone: 'customer_phone',
+  shipping_address: 'shipping_address',
+  items: 'items',
+  subtotal: 'subtotal',
+  discount: 'discount',
+  shipping_cost: 'shipping_cost',
+  total: 'total',
+  coupon_code: 'coupon_code',
+  payment_status: 'payment_status',
+  payment_method: 'payment_method',
+  order_status: 'order_status',
+  tracking_number: 'tracking_number',
+  created_at: 'created_at'
+} as const
+
+export type OrdersScalarFieldEnum = (typeof OrdersScalarFieldEnum)[keyof typeof OrdersScalarFieldEnum]
+
+
+export const ProductsScalarFieldEnum = {
+  id: 'id',
+  store_id: 'store_id',
+  category_id: 'category_id',
+  name: 'name',
+  description: 'description',
+  price: 'price',
+  compare_at_price: 'compare_at_price',
+  sku: 'sku',
+  stock: 'stock',
+  images: 'images',
+  variants: 'variants',
+  status: 'status',
+  created_at: 'created_at'
+} as const
+
+export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
+
+
+export const StoresScalarFieldEnum = {
+  id: 'id',
+  merchant_id: 'merchant_id',
+  name: 'name',
+  slug: 'slug',
+  logo_url: 'logo_url',
+  banner_url: 'banner_url',
+  description: 'description',
+  currency: 'currency',
+  status: 'status',
+  shipping_fee: 'shipping_fee',
+  free_shipping_threshold: 'free_shipping_threshold',
+  hero_style: 'hero_style',
+  accent_color: 'accent_color',
+  created_at: 'created_at'
+} as const
+
+export type StoresScalarFieldEnum = (typeof StoresScalarFieldEnum)[keyof typeof StoresScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -86,6 +154,21 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const QueryMode = {
@@ -102,4 +185,13 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 

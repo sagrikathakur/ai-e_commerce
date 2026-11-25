@@ -1,22 +1,22 @@
-import express from 'express';
-import dotenv from 'dotenv';
 
-dotenv.config();
+import "dotenv/config";
+import express, { Request, Response } from "express";
+import cors from "cors";
 
-
-
-const port = process.env.PORT;
-// server instance//
 const app = express();
-// middleware//
+
+const PORT = Number(process.env.PORT);
+
+// Middleware
+app.use(cors());
 app.use(express.json());
-// route handler//
-app.get('/', (req, res) => {
-  res.status(200).json({ message: "hello i hope you get this message" })
-})
 
-// listen //
-app.listen(port, () => {
-  console.log(`server is running on port ${port}`)
-})
+// Routes
+app.get("/", (req, res) => {
+  res.status(200).send("Server is Live!");
+});
 
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
